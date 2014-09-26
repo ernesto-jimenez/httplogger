@@ -42,7 +42,11 @@ func (dl DefaultLogger) LogRequest(*http.Request) {
 // LogResponse logs path, host, status code and duration in milliseconds
 func (dl DefaultLogger) LogResponse(req *http.Request, res *http.Response, err error, duration time.Duration) {
 	duration /= time.Millisecond
-	log.Printf("HTTP Request host=%s method=%s status=%d durationMs=%d", req.Host, req.Method, res.StatusCode, duration)
+	if err != nil {
+		log.Printf("HTTP Request host=%s method=%s status=error durationMs=%d error=%q", req.Host, req.Method, duration, err.Error())
+	} else {
+		log.Printf("HTTP Request host=%s method=%s status=%d durationMs=%d", req.Host, req.Method, res.StatusCode, duration)
+	}
 }
 
 // DefaultLoggedTransport wraps http.DefaultTransport to log using DefaultLogger
