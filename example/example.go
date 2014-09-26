@@ -35,13 +35,13 @@ func (l *httpLogger) LogRequest(req *http.Request) {
 	)
 }
 
-func (l *httpLogger) LogResponse(res *http.Response, err error, duration time.Duration) {
+func (l *httpLogger) LogResponse(req *http.Request, res *http.Response, err error, duration time.Duration) {
 	duration /= time.Millisecond
 	l.log.Printf(
 		"Response method=%s status=%d durationMs=%d %s",
-		res.Request.Method,
+		req.Method,
 		res.StatusCode,
 		duration,
-		res.Request.URL.String(),
+		req.URL.String(),
 	)
 }
