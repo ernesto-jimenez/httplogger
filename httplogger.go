@@ -43,9 +43,9 @@ func (dl DefaultLogger) LogRequest(*http.Request) {
 func (dl DefaultLogger) LogResponse(req *http.Request, res *http.Response, err error, duration time.Duration) {
 	duration /= time.Millisecond
 	if err != nil {
-		log.Printf("HTTP Request host=%s method=%s status=error durationMs=%d error=%q", req.Host, req.Method, duration, err.Error())
+		log.Printf("HTTP Request method=%s host=%s path=%s status=error durationMs=%d error=%q", req.Method, req.Host, req.URL.Path, duration, err.Error())
 	} else {
-		log.Printf("HTTP Request host=%s method=%s status=%d durationMs=%d", req.Host, req.Method, res.StatusCode, duration)
+		log.Printf("HTTP Request method=%s host=%s path=%s status=%d durationMs=%d", req.Method, req.Host, req.URL.Path, res.StatusCode, duration)
 	}
 }
 
