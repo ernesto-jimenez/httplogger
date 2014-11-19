@@ -20,7 +20,7 @@ func (c *loggedRoundTripper) RoundTrip(request *http.Request) (*http.Response, e
 	return response, err
 }
 
-// NewLoggedTransport takes an http.RoundTripper and returns a new one that caches requests and responses
+// NewLoggedTransport takes an http.RoundTripper and returns a new one that logs requests and responses
 func NewLoggedTransport(rt http.RoundTripper, log HTTPLogger) http.RoundTripper {
 	return &loggedRoundTripper{rt: rt, log: log}
 }
