@@ -47,13 +47,17 @@ func (l *httpLogger) LogRequest(req *http.Request) {
 
 func (l *httpLogger) LogResponse(req *http.Request, res *http.Response, err error, duration time.Duration) {
 	duration /= time.Millisecond
-	l.log.Printf(
-		"Response method=%s status=%d durationMs=%d %s",
-		req.Method,
-		res.StatusCode,
-		duration,
-		req.URL.String(),
-	)
+	if err != nil {
+		l.log.Println(err)
+	} else {
+		l.log.Printf(
+			"Response method=%s status=%d durationMs=%d %s",
+			req.Method,
+			res.StatusCode,
+			duration,
+			req.URL.String(),
+		)
+	}
 }
 ```
 
