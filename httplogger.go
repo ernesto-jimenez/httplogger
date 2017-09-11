@@ -35,7 +35,7 @@ type HTTPLogger interface {
 type DefaultLogger struct {
 }
 
-// LogRequest doens't do anything since we'll be logging replies only
+// LogRequest doesn't do anything since we'll be logging replies only
 func (dl DefaultLogger) LogRequest(*http.Request) {
 }
 
