@@ -1,3 +1,8 @@
+// Package main provides a sample example to use the httplogger API
+// This example can accept a URl as input. If not, it assumes a default Url and logs Req/Resp for that Url
+//          The Command line usage guide. Copyright (c) Mohd Anwar Jamal Faiz
+//          Toughjamy@yahoo.com
+
 package main
 
 import (
@@ -6,7 +11,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Anwar-Faiz/httplogger"
+	"httplogger"
 )
 
 func main() {
@@ -14,7 +19,15 @@ func main() {
 		Transport: httplogger.NewLoggedTransport(http.DefaultTransport, newLogger()),
 	}
 
-	client.Get("http://google.com")
+	argsWithoutProg := os.Args[1:]
+	if len(argsWithoutProg)==1 {
+			client.Get(argsWithoutProg[0])
+		} else if len(argsWithoutProg)>1 {
+			println("just one parameter required")
+		} else {
+			defaultUrl := "http://www.w3lc.com"
+			client.Get(defaultUrl)
+		}
 }
 
 type httpLogger struct {
