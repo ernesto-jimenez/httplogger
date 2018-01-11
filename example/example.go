@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/ernesto-jimenez/httplogger"
+	"github.com/Anwar-Faiz/httplogger"
 )
 
 func main() {
