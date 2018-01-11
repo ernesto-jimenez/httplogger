@@ -1,4 +1,4 @@
-Small golang library useful for logging API requests.
+A GoLang library useful for logging API requests - HttpLogger
 
 It wraps any http.Transport to log its requests and responses,
 including the duration time.
@@ -16,7 +16,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/ernesto-jimenez/httplogger"
+	"github.com/Anwar-Faiz/httplogger"
 )
 
 func main() {
@@ -65,14 +65,10 @@ Output:
 
 ```
 % go run example/example.go
-log - 2014/08/17 02:19:19 Request GET http://google.com
-log - 2014/08/17 02:19:19 Response method=GET status=302
-durationMs=85 http://google.com
-log - 2014/08/17 02:19:19 Request GET
-http://www.google.co.uk/?gfe_rd=cr&ei=GwPwU4GtPMKo8we3koKwDg
-log - 2014/08/17 02:19:20 Response method=GET status=200
-durationMs=138
-http://www.google.co.uk/?gfe_rd=cr&ei=GwPwU4GtPMKo8we3koKwDg
+log - 2018/01/11 15:42:27 Request GET http://google.com
+log - 2018/01/11 15:42:28 Response method=GET status=302 durationMs=530 http://google.com
+log - 2018/01/11 15:42:28 Request GET http://www.google.co.in/?gfe_rd=cr&dcr=0&ei=izhXWoXZOq_SXvmFoNgF
+log - 2018/01/11 15:42:28 Response method=GET status=200 durationMs=594 http://www.google.co.in/?gfe_rd=cr&dcr=0&ei=izhXWoXZOq_SXvmFoNgF
 ```
 
 # LICENSE
@@ -84,3 +80,13 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Also:
+
+Many parts of the Software after fork is written By Mohd Anwar Jamal Faiz
+Permission is granted to use/copy/educate with or without mentioning the author of those code. Although giving back credits is hugely appreciated. 
+
+Cheers ;)
+Anwar Jamal Faiz
+Toughjamy@yahoo.com
+http://www.w3LC.com  [ W3LC : World Wide Web Learners Consortium ]
