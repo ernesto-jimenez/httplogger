@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/ernesto-jimenez/httplogger?status.svg)](https://godoc.org/github.com/ernesto-jimenez/httplogger)
+
 Small golang library useful for logging API requests.
 
 It wraps any http.Transport to log its requests and responses,
